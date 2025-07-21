@@ -23,7 +23,8 @@
     "react-router-dom": "^7.6.2",
     "tailwindcss": "^4.1.10",
     "three": "^0.178.0",
-    "unplugin-inject-preload": "^3.0.0"
+    "unplugin-inject-preload": "^3.0.0",
+    "vite-bundle-analyzer": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
