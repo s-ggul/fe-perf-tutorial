@@ -1,8 +1,14 @@
 import React from "react";
 
 interface PictureProps {
-  src: string;
-  webpSrc: string;
+  // src: string;
+  // webpSrc: string;
+  fallbackSrc: string;
+  sources: {
+    [format in "webp" | "jpeg" | "jpg" | "png" | "avif"]?: {
+      [originalWidth: number]: string;
+    };
+  };
   alt?: string;
   style?: React.CSSProperties;
   className?: string;
@@ -10,8 +16,8 @@ interface PictureProps {
 }
 
 export function Picture2({
-  src,
-  webpSrc,
+  fallbackSrc,
+  sources,
   alt = "",
   style = {},
   className = "",
@@ -22,8 +28,16 @@ export function Picture2({
       {/* 여러가지 이미지들에 대한 분기를 처리할 수 있음 */}
       {/* 아래 내용이 webp가 안되면 img 태그로 렌더링 해라 이다. */}
       <picture>
-        <source srcSet={webpSrc} type="image/webp" />
-        <img src={src} alt={alt} onClick={onClick} />
+        {Object.entries(sources).map(([format, srcByDpr]) => (
+          <source
+            key={`${format}`}
+            srcSet={Object.entries(srcByDpr)
+              .map(([originalWidth, src]) => `${src} ${originalWidth}w`)
+              .join(", ")}
+            type={`image/${format}`}
+          />
+        ))}
+        <img src={fallbackSrc} alt={alt} onClick={onClick} />
       </picture>
     </div>
   );

@@ -1,6 +1,8 @@
 import { Scene } from "../components/Scene";
-import jpgImg from "../assets/imgs/main.jpg";
-import webpImg from "../assets/imgs/main.webp";
+import jpgImg1x from "../assets/imgs/main_1x.jpg";
+import webpImg1x from "../assets/imgs/main_1x.webp";
+import jpgImg2x from "../assets/imgs/main_2x.jpg";
+import webpImg2x from "../assets/imgs/main_2x.webp";
 import { Picture2 } from "../components/Picture2";
 
 function Scene1({ height }: { height: number }) {
@@ -23,8 +25,17 @@ function Scene1({ height }: { height: number }) {
 
             <div className="w-full p-6">
               <Picture2
-                src={jpgImg}
-                webpSrc={webpImg}
+                fallbackSrc={webpImg2x}
+                sources={{
+                  webp: {
+                    420: webpImg1x,
+                    1040: webpImg2x,
+                  },
+                  jpg: {
+                    420: jpgImg1x,
+                    1040: jpgImg2x,
+                  },
+                }}
                 alt="웨딩 사진"
                 className="w-full object-cover"
               />
