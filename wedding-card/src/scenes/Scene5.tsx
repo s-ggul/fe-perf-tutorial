@@ -4,8 +4,8 @@ import { Animated } from "../components/Animated";
 import { Text } from "../components/Text";
 import { Picture } from "../components/Picture";
 
-import img1 from "../assets/imgs/section5-1.jpg";
-import img2 from "../assets/imgs/section5-2.jpg";
+import img1 from "../assets/imgs/section5-1.webp";
+import img2 from "../assets/imgs/section5-2.webp";
 
 function Scene5({ height }: { height: number }) {
   return (
@@ -26,7 +26,8 @@ function Scene5({ height }: { height: number }) {
                 tweenFn: animation["easeInOutQuad"],
               },
             ]}
-            className="fixed z-10 top-[10%] left-1/2 -translate-x-1/2">
+            className="fixed z-10 top-[10%] left-1/2 -translate-x-1/2"
+          >
             <Text text={"함께 하는 것만으로도"} />
           </Animated>
           <Animated
@@ -43,7 +44,8 @@ function Scene5({ height }: { height: number }) {
                 tweenFn: animation["easeInOutQuad"],
               },
             ]}
-            className="boxShadow fixed z-10 top-1/2 left-[47%] w-[86%] max-w-[460px] -translate-x-1/2 -translate-y-1/2 origin-center">
+            className="boxShadow fixed z-10 top-1/2 left-[47%] w-[86%] max-w-[460px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          >
             <Picture src={img1} />
           </Animated>
           <Animated
@@ -60,7 +62,8 @@ function Scene5({ height }: { height: number }) {
                 tweenFn: animation["easeInOutQuad"],
               },
             ]}
-            className="boxShadow fixed z-10 top-1/2 left-[64%] w-[60%] max-w-[350px] -translate-x-1/2 -translate-y-1/2 origin-center">
+            className="boxShadow fixed z-10 top-1/2 left-[64%] w-[60%] max-w-[350px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          >
             <Picture src={img2} />
           </Animated>
           <Animated
@@ -77,7 +80,8 @@ function Scene5({ height }: { height: number }) {
                 tweenFn: animation["easeInOutQuad"],
               },
             ]}
-            className="fixed z-10 bottom-[10%] left-1/2 -translate-x-1/2">
+            className="fixed z-10 bottom-[10%] left-1/2 -translate-x-1/2"
+          >
             <Text text={"서로가 서로에게"} />
           </Animated>
         </>

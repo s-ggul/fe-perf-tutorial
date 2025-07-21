@@ -3,9 +3,9 @@ import { animation } from "../utils/animation";
 import { Animated } from "../components/Animated";
 import { Text } from "../components/Text";
 import { Picture } from "../components/Picture";
-import img1 from "../assets/imgs/section3-1.jpg";
-import img2 from "../assets/imgs/section3-2.jpg";
-import img3 from "../assets/imgs/section3-3.jpg";
+import img1 from "../assets/imgs/section3-1.webp";
+import img2 from "../assets/imgs/section3-2.webp";
+import img3 from "../assets/imgs/section3-3.webp";
 
 function Scene3({ height }: { height: number }) {
   return (
@@ -65,7 +65,8 @@ function Scene3({ height }: { height: number }) {
                 ],
                 unit: "%",
               },
-            ]}>
+            ]}
+          >
             <Picture src={img1} />
           </Animated>
 
@@ -127,7 +128,8 @@ function Scene3({ height }: { height: number }) {
                 ],
                 unit: "%",
               },
-            ]}>
+            ]}
+          >
             <Picture src={img2} />
           </Animated>
 
@@ -184,7 +186,8 @@ function Scene3({ height }: { height: number }) {
                 ],
                 unit: "%",
               },
-            ]}>
+            ]}
+          >
             <Picture src={img3} />
           </Animated>
 
@@ -203,7 +206,8 @@ function Scene3({ height }: { height: number }) {
                 ],
                 tweenFn: animation.easeInOutQuad,
               },
-            ]}>
+            ]}
+          >
             <Text text={"열심히 사랑했고"} />
           </Animated>
 
@@ -222,7 +226,8 @@ function Scene3({ height }: { height: number }) {
                 ],
                 tweenFn: animation.easeInOutQuad,
               },
-            ]}>
+            ]}
+          >
             <Text text={"함께 성장했습니다."} />
           </Animated>
         </div>

@@ -1,6 +1,7 @@
 import { Scene } from "../components/Scene";
-import mainImg from "../assets/imgs/main.jpg";
-import { Picture } from "../components/Picture";
+import jpgImg from "../assets/imgs/main.jpg";
+import webpImg from "../assets/imgs/main.webp";
+import { Picture2 } from "../components/Picture2";
 
 function Scene1({ height }: { height: number }) {
   return (
@@ -9,7 +10,8 @@ function Scene1({ height }: { height: number }) {
         return (
           <div
             className="flex flex-col items-center justify-around overflow-hidden"
-            style={{ minHeight: height - 50 }}>
+            style={{ minHeight: height - 50 }}
+          >
             <div className="flex items-center justify-around w-full pt-10">
               <div className="text-xl">김신랑</div>
               <div className="flex flex-col text-lg w-12 items-stretch text-center">
@@ -20,8 +22,9 @@ function Scene1({ height }: { height: number }) {
             </div>
 
             <div className="w-full p-6">
-              <Picture
-                src={mainImg}
+              <Picture2
+                src={jpgImg}
+                webpSrc={webpImg}
                 alt="웨딩 사진"
                 className="w-full object-cover"
               />

@@ -3,7 +3,7 @@ import { animation } from "../utils/animation";
 import { Animated } from "../components/Animated";
 import { Text } from "../components/Text";
 import { Picture } from "../components/Picture";
-import img1 from "../assets/imgs/section4-1.jpg";
+import img1 from "../assets/imgs/section4-1.webp";
 
 function Scene4({ height }: { height: number }) {
   return (
@@ -23,7 +23,8 @@ function Scene4({ height }: { height: number }) {
                 ],
                 tweenFn: animation.easeInOutQuad,
               },
-            ]}>
+            ]}
+          >
             <Text text={"때로는 슬프기도,"} />
           </Animated>
           <Animated
@@ -45,7 +46,8 @@ function Scene4({ height }: { height: number }) {
               maxWidth: "475px",
               margin: "35px auto",
             }}
-            className="boxShadow">
+            className="boxShadow"
+          >
             <Picture src={img1} />
           </Animated>
           <Animated
@@ -61,7 +63,8 @@ function Scene4({ height }: { height: number }) {
                 ],
                 tweenFn: animation.easeInOutQuad,
               },
-            ]}>
+            ]}
+          >
             <Text text={"감정이 상하기도 했지만"} />
           </Animated>
         </div>

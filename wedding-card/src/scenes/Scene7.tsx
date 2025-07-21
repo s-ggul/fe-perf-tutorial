@@ -4,7 +4,7 @@ import { Animated } from "../components/Animated";
 import { Text } from "../components/Text";
 import { Picture } from "../components/Picture";
 
-import img1 from "../assets/imgs/section7-1.jpg";
+import img1 from "../assets/imgs/section7-1.webp";
 
 function Scene7({ height }: { height: number }) {
   return (
@@ -25,7 +25,8 @@ function Scene7({ height }: { height: number }) {
                 ],
                 tweenFn: animation.easeInOutQuad,
               },
-            ]}>
+            ]}
+          >
             <Picture src={img1} />
           </Animated>
 
@@ -43,7 +44,8 @@ function Scene7({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Text text="그리고 이제" />
             </Animated>
             <Animated
@@ -59,7 +61,8 @@ function Scene7({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Text text="서로와 평생을 약속하려 합니다." />
             </Animated>
           </div>

@@ -2,8 +2,8 @@ import { Scene } from "../components/Scene";
 import { animation } from "../utils/animation";
 import { Animated } from "../components/Animated";
 import { Text } from "../components/Text";
-import img1 from "../assets/imgs/section2-1.jpg";
-import img2 from "../assets/imgs/section2-2.jpg";
+import img1 from "../assets/imgs/section2-1.webp";
+import img2 from "../assets/imgs/section2-2.webp";
 import { Picture } from "../components/Picture";
 
 function Scene2({ height }: { height: number }) {
@@ -27,7 +27,8 @@ function Scene2({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Text text="4년 전, 겨울" />
             </Animated>
 
@@ -45,7 +46,8 @@ function Scene2({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Picture src={img1} className="w-[50%] m-auto" />
               <br />
               <br />
@@ -66,7 +68,8 @@ function Scene2({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Picture src={img2} className="w-[50%] m-auto" />
               <br />
               <br />

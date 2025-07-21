@@ -4,8 +4,8 @@ import { Animated } from "../components/Animated";
 import { Text } from "../components/Text";
 import { Picture } from "../components/Picture";
 
-import img1 from "../assets/imgs/section6-1.jpg";
-import img2 from "../assets/imgs/section6-2.jpg";
+import img1 from "../assets/imgs/section6-1.webp";
+import img2 from "../assets/imgs/section6-2.webp";
 
 function Scene6({ height }: { height: number }) {
   return (
@@ -26,7 +26,8 @@ function Scene6({ height }: { height: number }) {
                 tweenFn: animation.easeInOutQuad,
               },
             ]}
-            className="boxShadow w-[92%] max-w-[460px]">
+            className="boxShadow w-[92%] max-w-[460px]"
+          >
             <Picture src={img1} />
           </Animated>
 
@@ -44,7 +45,8 @@ function Scene6({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Text style={{ color: "white" }} text="가장" />
             </Animated>
             <Animated
@@ -60,7 +62,8 @@ function Scene6({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Text style={{ color: "white" }} text="큰 힘이" />
             </Animated>
             <Animated
@@ -76,7 +79,8 @@ function Scene6({ height }: { height: number }) {
                   ],
                   tweenFn: animation.easeInOutQuad,
                 },
-              ]}>
+              ]}
+            >
               <Text style={{ color: "white" }} text="되어주었습니다." />
             </Animated>
           </div>
@@ -95,7 +99,8 @@ function Scene6({ height }: { height: number }) {
                 tweenFn: animation.easeInOutQuad,
               },
             ]}
-            className="boxShadow w-[92%] max-w-[460px]">
+            className="boxShadow w-[92%] max-w-[460px]"
+          >
             <Picture src={img2} />
           </Animated>
         </div>
