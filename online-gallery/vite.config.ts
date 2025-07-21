@@ -16,6 +16,12 @@ export default defineConfig({
         {
           entryMatch: /.*\.webp$/,
         },
+        // {
+        //   outputMatch: /.*\.js$/,
+        //   attributes: {
+        //     crossorigin: "anonymous",
+        //   },
+        // },
       ],
     }),
     analyzer(),

@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import { useCart } from "../contexts/CartContext";
 
+let flag = false;
+
 function Header() {
   const { cart } = useCart();
+  const handleMouseOver = () => {
+    // 여기서 cartpage에 대한 다이나믹 임포트를 구현함
+    if (flag) return;
+    import("../pages/CartPage");
+    flag = true;
+  };
 
   return (
     <header className="flex flex-col items-center py-8 w-full">
@@ -13,7 +21,9 @@ function Header() {
         </Link>
         <Link
           to="/cart"
-          className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
+          onMouseEnter={handleMouseOver}
+          className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors"
+        >
           <span className="text-2xl">🛒</span>
           {cart.totalItems > 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
