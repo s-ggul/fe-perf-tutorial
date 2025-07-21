@@ -1,8 +1,9 @@
+import banner from "@/assets/event-banner.webp";
 // import { useQuery } from "@tanstack/react-query";
 
 // const fetchBanner = async () => {
 //   await new Promise((resolve) => setTimeout(resolve, 500));
-//   const res = await fetch("/api/banner.json");
+//   const res = await fetch("/src/assets/event-banner.webp");
 //   if (!res.ok) throw new Error("Network response was not ok");
 //   return res.json();
 // };
@@ -13,7 +14,7 @@ function Banner() {
   //   queryFn: fetchBanner,
   // });
 
-  const banner = "/event-banner.webp"; // 배너 이미지를 서버에서 불러오는게 아닌 바로 가져오도록
+  // const banner = "/event-banner.webp"; // 배너 이미지를 서버에서 불러오는게 아닌 바로 가져오도록
 
   if (!banner) return null;
 
