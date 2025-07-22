@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/data/mockData";
 import type { Product } from "@/types";
+import { debounce } from "lodash";
 
 export interface SearchResult {
   type: "product";
@@ -14,9 +15,29 @@ interface SearchProps {
 }
 
 function Search({ onSelect }: SearchProps) {
+  const [, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  const debouncedSetSearchQuery = useCallback(
+    debounce((query: string) => {
+      setSearchQuery(query);
+    }, 300),
+    []
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
+    setShowSuggestions(true);
+    debouncedSetSearchQuery(e.target.value);
+  };
+
+  const handleSuggestionClick = (suggestion: SearchResult) => {
+    setSearchQuery(suggestion.displayText);
+    setShowSuggestions(false);
+    onSelect?.(suggestion);
+  };
 
   const { data: products = [], isLoading } = useQuery({
     queryKey: ["products", searchQuery],
@@ -45,22 +66,13 @@ function Search({ onSelect }: SearchProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleSuggestionClick = (suggestion: SearchResult) => {
-    setSearchQuery(suggestion.displayText);
-    setShowSuggestions(false);
-    onSelect?.(suggestion);
-  };
-
   return (
     <div className="relative" ref={searchRef}>
       <input
         type="text"
         placeholder="Search products..."
         value={searchQuery}
-        onChange={(e) => {
-          setSearchQuery(e.target.value);
-          setShowSuggestions(true);
-        }}
+        onChange={handleChange}
         onFocus={() => setShowSuggestions(true)}
         className="w-full px-3 py-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
       />
@@ -74,7 +86,8 @@ function Search({ onSelect }: SearchProps) {
                 <li key={`${suggestion.type}-${index}`}>
                   <button
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className="w-full px-4 py-2 text-left hover:bg-gray-600 transition-colors flex items-center">
+                    className="w-full px-4 py-2 text-left hover:bg-gray-600 transition-colors flex items-center"
+                  >
                     <span className="text-xs px-2 py-1 rounded mr-2 bg-green-500 text-white">
                       📦
                     </span>

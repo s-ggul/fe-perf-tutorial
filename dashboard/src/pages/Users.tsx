@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "@/data/mockData";
 import type { User } from "@/types";
@@ -9,27 +9,22 @@ const roles = ["All", "Admin", "Manager", "User", "Guest"];
 function Users() {
   const [query, setQuery] = useState("");
   const [role, setRole] = useState("All");
-  const [filtered, setFiltered] = useState<User[]>([]);
 
   const { data: users, isLoading } = useQuery<User[]>({
     queryKey: ["users"],
     queryFn: getUsers,
   });
 
-  // 불필요한 useEffect
-  useEffect(() => {
-    if (!users) return;
+  if (!users) return;
 
-    setFiltered(
-      users.filter((u) => {
-        return (
-          u.firstName.toLowerCase().includes(query.toLowerCase()) ||
-          u.lastName.toLowerCase().includes(query.toLowerCase()) ||
-          u.email.toLowerCase().includes(query.toLowerCase())
-        );
-      })
-    );
-  }, [users, query, role]);
+  const filtered =
+    users.filter((u) => {
+      return (
+        u.firstName.toLowerCase().includes(query.toLowerCase()) ||
+        u.lastName.toLowerCase().includes(query.toLowerCase()) ||
+        u.email.toLowerCase().includes(query.toLowerCase())
+      );
+    }) ?? [];
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -44,7 +39,8 @@ function Users() {
         <select
           className="border rounded px-3 py-2 w-full md:w-48"
           value={role}
-          onChange={(e) => setRole(e.target.value)}>
+          onChange={(e) => setRole(e.target.value)}
+        >
           {roles.map((r) => (
             <option key={r} value={r}>
               {r}

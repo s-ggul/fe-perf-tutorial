@@ -11,9 +11,8 @@ function ProgressBar({ value }: ProgressBarProps) {
 
   useEffect(() => {
     if (barRef.current) {
-      barRef.current.style.width = "0%";
       setTimeout(() => {
-        barRef.current!.style.width = `${value}%`;
+        barRef.current!.style.transform = `scaleX(${value}%)`;
       }, 100);
     }
   }, [value]);
@@ -22,7 +21,12 @@ function ProgressBar({ value }: ProgressBarProps) {
     <div className="relative h-4 bg-blue-100 rounded w-full">
       <div
         ref={barRef}
-        className="absolute left-0 top-0 w-0 h-4 bg-blue-500 rounded transition-all duration-1000"
+        style={{
+          width: `${value}%`,
+          transformOrigin: "left",
+          transform: "scaleX(0)",
+        }}
+        className="absolute translate-x-0 translate-y-0 w-0 h-4 bg-blue-500 rounded transition-all duration-1000"
       />
       <span className="absolute left-1 top-0 text-xs text-white z-10">
         {value}

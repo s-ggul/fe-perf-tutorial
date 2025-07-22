@@ -73,7 +73,8 @@ function Analytics() {
                 ? "bg-blue-600 text-white"
                 : "bg-white text-gray-700"
             }`}
-            onClick={() => setPeriod(p.days)}>
+            onClick={() => setPeriod(p.days)}
+          >
             {p.label}
           </button>
         ))}
@@ -121,7 +122,8 @@ function Analytics() {
               cy="50%"
               outerRadius={70}
               fill="#8884d8"
-              label>
+              label
+            >
               {pieData.map((_, idx) => (
                 <Cell key={`cell-${idx}`} fill={COLORS[idx % COLORS.length]} />
               ))}
