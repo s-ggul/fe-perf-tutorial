@@ -2,9 +2,8 @@
 // @ts-ignore
 import "swiper/css";
 
-import { useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import { Text } from "../components/Text";
-import SwipeView from "../components/SwipeView";
 
 import photo1 from "../assets/imgs/photo-1.webp";
 import photo2 from "../assets/imgs/photo-2.webp";
@@ -14,10 +13,21 @@ import photo5 from "../assets/imgs/photo-5.webp";
 import photo6 from "../assets/imgs/photo-6.webp";
 
 const photos = [photo1, photo2, photo3, photo4, photo5, photo6];
+const LazySwipeView = lazy(() => import("../components/SwipeView"));
 
 export default function ScenePhotos() {
   const [swiperOpen, setSwiperOpen] = useState(false);
   const [swiperIndex, setSwiperIndex] = useState(0);
+
+  useEffect(() => {
+    const loadSwipeView = () => {
+      import("../components/SwipeView");
+    };
+    if ("requestIdleCallback" in window) {
+      const id = requestIdleCallback(loadSwipeView);
+      return () => cancelIdleCallback(id);
+    } else setTimeout(loadSwipeView, 1);
+  }, []);
 
   return (
     <section className="relative z-[1000] py-[90px] max-w-[500px] mx-auto">
@@ -47,7 +57,7 @@ export default function ScenePhotos() {
         *사진을 클릭하시면 크게 볼 수 있어요!
       </div>
       {swiperOpen && (
-        <SwipeView
+        <LazySwipeView
           onClose={() => setSwiperOpen(false)}
           photos={photos}
           initialIndex={swiperIndex}
