@@ -4,7 +4,11 @@
   font-family: "Nanum Myeongjo Regular";
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/NanumMyeongjo-Regular.ttf") format("truetype");
+  src: local("NanumMyeongjo"),
+    url("./assets/fonts/NanumMyeongjo.woff2") format("truetype"),
+    url("./assets/fonts/NanumMyeongjo.woff") format("truetype"),
+    url("./assets/fonts/NanumMyeongjo-Regular.ttf") format("truetype");
+  font-display: fallback;
 }
 
 body {
