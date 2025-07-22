@@ -5,11 +5,17 @@ interface SceneProps {
   height: number;
   children?: (progress: number) => React.ReactNode;
   className?: string;
+  initialProgress?: number; // 초기 progress 값
 }
 
-export function Scene({ height, className, children }: SceneProps) {
+export function Scene({
+  height,
+  className,
+  children,
+  initialProgress,
+}: SceneProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const progress = useSceneProgress(ref, height); // 스크롤이 얼마나 내려와 있는지에 대한 비율을 계산
+  const progress = useSceneProgress(ref, initialProgress, height); // 스크롤이 얼마나 내려와 있는지에 대한 비율을 계산
 
   return (
     <div
