@@ -171,7 +171,7 @@ function Scene3({ height }: { height: number }) {
                 tweenFn: animation.easeInOutQuad,
               },
               {
-                prop: "left",
+                prop: "translateX",
                 keyframes: [
                   [0.4, 48],
                   [0.95, 50],
@@ -179,7 +179,7 @@ function Scene3({ height }: { height: number }) {
                 unit: "%",
               },
               {
-                prop: "top",
+                prop: "translateY",
                 keyframes: [
                   [0.4, 42],
                   [0.95, 41],
